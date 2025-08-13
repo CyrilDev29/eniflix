@@ -1,3 +1,23 @@
 body {
-    background-color: skyblue;
+    background: linear-gradient(#000000, #132135);
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    color: #EEE;
+    font-family: roboto, sans-serif;
+    padding: 10px;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    gap: 50px;
+}
+
+nav li a {
+    text-decoration: none;
+    color: inherit;
+    padding: 10px;
 }
