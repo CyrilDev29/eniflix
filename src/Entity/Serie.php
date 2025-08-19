@@ -195,6 +195,7 @@ class Serie
     {
         return $this->dateCreated;
     }
+
     #[ORM\PrePersist]
     public function setDateCreated(): static
     {
@@ -208,9 +209,8 @@ class Serie
         return $this->dateModified;
     }
 
-
     #[ORM\PreUpdate]
-    public function setDateModified(?\DateTime $dateModified): static
+    public function setDateModified(): static
     {
         $this->dateModified = new \DateTime();
 
