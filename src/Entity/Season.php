@@ -7,6 +7,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SeasonRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Season
 {
     #[ORM\Id]
@@ -108,10 +109,10 @@ class Season
     {
         return $this->dateCreated;
     }
-
-    public function setDateCreated(\DateTime $dateCreated): static
+    #[ORM\PrePersist] ///   pour injection automatique
+    public function setDateCreated(): static
     {
-        $this->dateCreated = $dateCreated;
+        $this->dateCreated = new \DateTime();
 
         return $this;
     }
@@ -121,9 +122,10 @@ class Season
         return $this->dateModified;
     }
 
-    public function setDateModified(?\DateTime $dateModified): static
+    #[ORM\PrePersist] ///   pour injection automatique
+    public function setDateModified(): static
     {
-        $this->dateModified = $dateModified;
+        $this->dateModified = new \DateTime();
 
         return $this;
     }
